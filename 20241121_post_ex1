@@ -1,0 +1,29 @@
+import pandas as pd
+import numpy as np
+
+# Sample dataset: Daily returns for two stocks (in %)
+data = {
+    "Stock_A": [2.0, -1.0, 3.0, 4.0, -2.0],
+    "Stock_B": [1.5, -0.5, 2.5, 3.5, -1.5]
+}
+
+# Create a DataFrame
+df = pd.DataFrame(data)
+
+# Calculate mean
+mean_a = df["Stock_A"].mean()
+mean_b = df["Stock_B"].mean()
+
+# Calculate variance
+variance_a = df["Stock_A"].var(ddof=0)  # Population variance (ddof=0)
+variance_b = df["Stock_B"].var(ddof=0)
+
+# Calculate correlation
+correlation = df["Stock_A"].corr(df["Stock_B"])
+
+# Output results
+print(f"Mean of Stock_A: {mean_a:.2f}%")
+print(f"Mean of Stock_B: {mean_b:.2f}%")
+print(f"Variance of Stock_A: {variance_a:.2f}")
+print(f"Variance of Stock_B: {variance_b:.2f}")
+print(f"Correlation between Stock_A and Stock_B: {correlation:.2f}")
